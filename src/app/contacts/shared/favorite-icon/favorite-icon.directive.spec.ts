@@ -29,8 +29,6 @@ describe('Directive: FavoriteIconDirective', () => {
         fixture.detectChanges();
     });
 
-    afterEach(() => { fixture = null; });
-
     describe('when favorite icon is set to true', () => {
         let starElement = null;
 
@@ -60,4 +58,6 @@ describe('Directive: FavoriteIconDirective', () => {
 
         afterEach(() => { starElement = null; });
     });
+
+    afterEach(() => { fixture = null; });
 });
