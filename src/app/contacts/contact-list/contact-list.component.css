@@ -15,6 +15,7 @@ tr {
 .add-fab {
   float: right;
   cursor: pointer;
+  position: absolute;
 }
 
 .add-fab-icon {

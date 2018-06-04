@@ -1,0 +1,46 @@
+00:02:50.971 |   1975ms | d1072c | NewSession
+    {"browserName":"chrome","count":1}
+00:02:52.960 |      3ms | d1072c | SetTimeouts
+    ERROR 13: unknown error: 'ms' must be a double
+  (Session info: chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64)
+00:02:52.972 |      6ms | d1072c | SetTimeouts
+00:02:53.756 |    130ms | d1072c | Go data:text/html,<html></html>
+00:02:53.890 |   1945ms | /session/d1072c65c62cb07720390569c8236d6a/execute
+00:02:55.840 |      7ms | /session/d1072c65c62cb07720390569c8236d6a/execute
+00:02:55.852 |    116ms | /session/d1072c65c62cb07720390569c8236d6a/execute_async
+00:02:56.341 |    340ms | d1072c | Waiting for Angular
+00:02:56.341 |     16ms | d1072c | FindElements
+    Using css selector '*[id="add-contact"]'
+    Elements: 0.21281845373213448-1
+00:02:56.370 |     10ms | d1072c | Waiting for Angular
+00:02:56.370 |     82ms | d1072c | ElementClick (0.21281845373213448-1)
+00:02:57.003 |    548ms | d1072c | Waiting for Angular
+00:02:57.004 |     21ms | d1072c | FindElements
+    Using css selector '*[id="contact-name"]'
+    Elements: 0.21281845373213448-2
+00:02:57.031 |      3ms | d1072c | Waiting for Angular
+00:02:57.031 |    104ms | d1072c | ElementSendKeys (0.21281845373213448-2)
+    Send: Ada Contact
+00:02:57.146 |      8ms | d1072c | Waiting for Angular
+00:02:57.147 |     16ms | d1072c | FindElements
+    Using css selector '.create-button'
+    Elements: 0.21281845373213448-3
+00:02:57.174 |      8ms | d1072c | Waiting for Angular
+00:02:57.175 |     51ms | d1072c | ElementClick (0.21281845373213448-3)
+00:02:58.274 |   1045ms | d1072c | Waiting for Angular
+00:02:58.275 |     18ms | d1072c | FindElements
+    Using css selector 'app-contact-list'
+    Elements: 0.21281845373213448-4
+00:02:58.305 |      9ms | d1072c | Waiting for Angular
+00:02:58.305 |     43ms | d1072c | GetElementText (0.21281845373213448-4)
+    Name Email Number
+mood Adrian Directive adrian.directive@example.com +1 (703) 555-0123 edit delete
+mood Rusty Component rusty.component@example.com +1 (441) 555-0122 edit delete
+mood Jeff Pipe jeff.pipe@example.com +1 (714) 555-0111 edit delete
+mood Craig Service craig.services@example.com +1 (514) 555-0132 edit delete
+mood Ada Contact edit delete
+
+Delete All Contacts
+add
+00:02:58.360 |    104ms | d1072c | DeleteSession

@@ -1,0 +1,1 @@
+node --inspect-brk ./node_modules/protractor/bin/protractor ./protractor-debugging.conf.js

@@ -14,14 +14,19 @@ export class ContactFeedDialogComponent implements OnInit, OnDestroy {
   name: string;
   closeDisabled = true;
 
-  constructor(public dialogRef: MatDialogRef<ContactFeedDialogComponent>, private feed: ContactFeedService, private zone: NgZone,
+  constructor(public dialogRef: MatDialogRef<ContactFeedDialogComponent>,
+              private feed: ContactFeedService,
+              private zone: NgZone,
               @Optional() @Inject(MAT_DIALOG_DATA) data: any) {
     this.name = data.name;
   }
 
   ngOnInit() {
-    /*
-     This version runs inside the Angular zone, and will block Protractor testing indefinitely.
+
+    this.closeDisabled = false;
+
+    //  This version runs inside the Angular zone, and will block Protractor testing indefinitely.
+      /*
      this.sub = this.feed.getFeed().subscribe((x) => {
        this.updates.push(x);
        if (this.updates.length > 5) {
@@ -29,8 +34,6 @@ export class ContactFeedDialogComponent implements OnInit, OnDestroy {
        }
      });
      */
-    this.closeDisabled = false;
-
     this.zone.runOutsideAngular(() => {
       this.sub = this.feed.getFeed().subscribe((x) => {
         this.zone.run(() => {

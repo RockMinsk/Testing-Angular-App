@@ -1,0 +1,8 @@
+00:36:26.917 |   2007ms | 8e4bdd | NewSession
+    {"browserName":"chrome","count":1}
+00:36:28.939 |      0ms | 8e4bdd | SetTimeouts
+    ERROR 13: unknown error: 'ms' must be a double
+  (Session info: chrome=66.0.3359.181)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64)
+00:36:28.958 |      0ms | 8e4bdd | SetTimeouts
+00:36:29.036 |     98ms | 8e4bdd | DeleteSession

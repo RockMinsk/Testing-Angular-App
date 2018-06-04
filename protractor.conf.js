@@ -5,18 +5,25 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
   allScriptsTimeout: 11000,
-  specs: [
-    'e2e/**/*.e2e-spec.ts'
-  ],
-  capabilities: {
-    browserName: 'chrome',
-    chromeOptions: {
-      args: (process.env.IS_CIRCLE ? ['--headless'] : [])
-    }
-  },
-  directConnect: !process.env.IS_JENKINS,
-  baseUrl: process.env.URL || 'http://localhost:4200/',
 
+  directConnect: process.env.DIRECT_CONNECT,
+  seleniumAddress: process.env.SELENIUM_ADDRESS || 'http://localhost:4444/wd/hub',
+  capabilities: {
+    browserName: (process.env.BROWSER_NAME || 'chrome'),
+    // chromeOptions: {
+    //   //args: (process.env.IS_CIRCLE ? ['--headless'] : [])
+    //   args: ['--headleas', '--disable-gpu']
+    // },
+    // loggingPrefs: {
+    //   performance: 'ALL',
+    //   browser: 'ALL'
+    // }
+  },
+  baseUrl: process.env.URL || 'http://localhost:4200/',
+  specs: [
+    // 'e2e/**/*.e2e-spec.ts',
+    'e2e/add-contact.e2e-spec.ts'
+  ],
   // Jasmine
   framework: 'jasmine',
   jasmineNodeOpts: {
@@ -24,11 +31,16 @@ exports.config = {
     defaultTimeoutInterval: 30000,
     print: function() {}
   },
+  beforeLaunch: function() {
+    require('ts-node').register({
+      project: 'e2e/tsconfig.e2e.json'
+    });
+  },
   onPrepare: ()=> {
-    if (process.env.IS_JENKINS) {
+    if (process.env.BROWSER_NAME === 'chrome') {
       let jasmineReporters = require('jasmine-reporters');
       let junitReporter = new jasmineReporters.JUnitXmlReporter({
-        savePath: 'output/',
+        savePath: './output/',
         consolidateAll: false
       });
       jasmine.getEnv().addReporter(junitReporter);
@@ -38,8 +50,6 @@ exports.config = {
       });
       jasmine.getEnv().addReporter(specReporter);
     }
-    require('ts-node').register({
-      project: 'e2e/tsconfig.e2e.json'
-    });
-  }
+  },
+  useAllAngular2AppRoots: true
 };

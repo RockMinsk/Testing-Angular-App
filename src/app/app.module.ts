@@ -27,6 +27,8 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './app-routing.module';
 import { InvalidEmailModalComponent } from './contacts/shared';
 import { InvalidPhoneNumberModalComponent } from './contacts/shared';
+import { PreferencesService } from './contacts/shared/services/preferences.service';
+import { PreferencesAsyncService } from './contacts/shared/services/preferences-async.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { InvalidPhoneNumberModalComponent } from './contacts/shared';
   providers: [
     ContactService,
     ContactFeedService,
+    PreferencesService,
+    PreferencesAsyncService
   ],
   bootstrap: [AppComponent]
 })

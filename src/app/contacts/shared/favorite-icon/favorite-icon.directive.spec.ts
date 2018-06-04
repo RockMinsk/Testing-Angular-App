@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentFixture, TestBed, TestModuleMetadata, TestModuleMetadata } from '@angular/core/testing';
+import { ComponentFixture, TestBed, TestModuleMetadata } from '@angular/core/testing';
 
 import { constants } from './favorite-icon.constants';
 import { FavoriteIconDirective } from './favorite-icon.directive';
@@ -15,16 +15,16 @@ import { getStarElement, doClassesMatch } from '../../testing';
     })
     class TestComponent { }
 
-describe('Directive: FavoriteIconDirective', () => {
+describe('Directive: FavoriteIcon', () => {
     let fixture: ComponentFixture<any>;
     const expectedSolidStarList = constants.classes.SOLID_STAR_STYLE_LIST;
     const expectedOutlineStarList = constants.classes.OUTLINE_STAR_STYLE_LIST;
 
     beforeEach(() => {
-        const TestModuleMetadata: TestModuleMetadata = {
+        const testModuleMetadata: TestModuleMetadata = {
             declarations: [FavoriteIconDirective, TestComponent]
         };
-        fixture = TestBed.configureTestingModule(TestModuleMetadata)
+        fixture = TestBed.configureTestingModule(testModuleMetadata)
                         .createComponent(TestComponent);
         fixture.detectChanges();
     });
