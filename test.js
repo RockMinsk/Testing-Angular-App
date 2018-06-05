@@ -1,21 +1,12 @@
-function* getStockPrice(symbol) {
-
-  while (true) {
-    yield Math.random()*100;
-
-    console.log(`resuming for ${symbol}`);
+(async function getCustomersOrders() {
+  try {
+      const customer = await getCustomers();
+      console.log(`Got customer ${customer}`);
+      const orders = await getOrders(customer);
+      console.log(orders);
+  } catch(err) {
+      console.log(err);
   }
-}
+})();
 
-const priceGenerator = getStockPrice("IBM");
-
-const limitPrice = 15;
-let price = 100;
-
-while (price > limitPrice) {
-
-   price = priceGenerator.next().value;
-   console.log (`The generator returned ${price}`);
-}
-
-console.log(`buying at ${price} !!!`);
+console.log("This is the last line in the app. Chained getCustomers() and getOrders() are still running without blocking the rest of the app.");
