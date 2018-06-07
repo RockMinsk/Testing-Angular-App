@@ -50,6 +50,8 @@ describe('contact test', () => {
         debugger;
 
         await closeButton.click();
+        // tslint:disable-next-line:no-debugger
+        debugger;
         await browser.wait(EC.stalenessOf(dialogTitle), 3000, 'Waiting for dialog to close');
         const dialogTitleIsPresent = await dialogTitle.isPresent();
         expect(dialogTitleIsPresent).toBeFalsy();
