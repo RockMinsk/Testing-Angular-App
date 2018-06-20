@@ -5,8 +5,8 @@ describe('contact test', () => {
         return browser.waitForAngularEnabled(true)
             .then(() => browser.get('/contact/4'));
     });
-
-    xit('should open the dialog with waitForAngular', () => {
+    // test written by using standard Control Flow:
+    it('should open the dialog with waitForAngular', () => {
         const feedButton = element(by.css('button.feed-button'));
         const closeButton = element(by.css('button[mat-dialog-close]'));
         const dialogTitle = element(by.css('app-contact-feed h2.mat-dialog-title'));
@@ -20,8 +20,8 @@ describe('contact test', () => {
         browser.wait(EC.stalenessOf(dialogTitle), 3000, 'Waiting for dialog to close');
         expect(dialogTitle.isPresent()).toBeFalsy();
     });
-
-    xit('should open the dialog with waitForAngular', (done) => {
+    // test written by using Promises:
+    it('should open the dialog with waitForAngular', (done) => {
         const feedButton = element(by.css('button.feed-button'));
         const closeButton = element(by.css('button[mat-dialog-close]'));
         const dialogTitle = element(by.css('app-contact-feed h2.mat-dialog-title'));
@@ -37,7 +37,7 @@ describe('contact test', () => {
         .then((dialogTitleIsPresent) => expect(dialogTitleIsPresent).toBeFalsy());
         done();
     });
-
+    // test written by using Async Await:
     it('should open the dialog with waitForAngular', async() => {
         const feedButton = element(by.css('button.feed-button'));
         const closeButton = element(by.css('button[mat-dialog-close]'));
